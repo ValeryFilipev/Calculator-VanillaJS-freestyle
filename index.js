@@ -7,12 +7,12 @@ function shiftFn(ken) {
   if (ken === 1) {
     shift.setAttribute("onclick", "shiftFn(0)") ;
     shift.style.backgroundColor = "orange" ;
-    arr[2].innerHTML = "sin<sup>-1</sup>" ;
-    arr[2].setAttribute("onclick", "trigger1('sin')") ;
+    arr[2].innerHTML = "sinh" ;
+    arr[2].setAttribute("onclick", "trigger1('sin')") ;//4
     arr[3].innerHTML = "cos<sup>-1</sup>" ;
     arr[3].setAttribute("onclick", "trigger1('cos')") ;
     arr[4].innerHTML = "tan<sup>-1</sup>" ;
-    arr[4].setAttribute("onclick", "trigger1('tan')") ;
+    arr[4].setAttribute("onclick", "trigger1('tan')") ;//3
     arr[10].innerHTML = "ln" ;
     arr[10].setAttribute("onclick", "log(0)") ;
     arr[28].innerHTML = "\u0065" ;
@@ -21,11 +21,11 @@ function shiftFn(ken) {
     shift.setAttribute("onclick", "shiftFn(1)") ;
     shift.style.backgroundColor = "yellow" ;
     arr[2].innerHTML = "sin" ;
-    arr[2].setAttribute("onclick", "trigger('sin')") ;
+    arr[2].setAttribute("onclick", "trigger('sin')") ;//4
     arr[3].innerHTML = "cos" ;
     arr[3].setAttribute("onclick", "trigger('cos')") ;
     arr[4].innerHTML = "tan" ;
-    arr[4].setAttribute("onclick", "trigger('tan')") ;
+    arr[4].setAttribute("onclick", "trigger('tan')") ;//3
     arr[10].innerHTML = "log" ;
     arr[10].setAttribute("onclick", "log(1)") ;
     arr[28].innerHTML = "\u03C0" ;
@@ -33,7 +33,7 @@ function shiftFn(ken) {
   }
 }
 
-function input(sum) {
+function input(sum) {//1
   let x = document.getElementById("result") ;
   let y = document.getElementById("Parameter") ;
   
@@ -96,7 +96,7 @@ function log(param) {
   }
 }
 
-function trigger(neededParam) {
+function trigger(neededParam) {//3, 4
   let x = document.getElementById("result") ;
   let y = document.getElementById("Parameter") ;
   
