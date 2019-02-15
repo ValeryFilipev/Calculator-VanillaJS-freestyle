@@ -4,15 +4,15 @@ function shiftFn(ken) {
   let shift = document.getElementById("shiftBtn") ;
   let arr = document.getElementsByTagName("td") ;
   
-  if (ken == 1) {
+  if (ken === 1) {
     shift.setAttribute("onclick", "shiftFn(0)") ;
     shift.style.backgroundColor = "orange" ;
     arr[2].innerHTML = "sin<sup>-1</sup>" ;
-    arr[2].setAttribute("onclick", "trigo1('sin')") ;
+    arr[2].setAttribute("onclick", "trigger1('sin')") ;
     arr[3].innerHTML = "cos<sup>-1</sup>" ;
-    arr[3].setAttribute("onclick", "trigo1('cos')") ;
+    arr[3].setAttribute("onclick", "trigger1('cos')") ;
     arr[4].innerHTML = "tan<sup>-1</sup>" ;
-    arr[4].setAttribute("onclick", "trigo1('tan')") ;
+    arr[4].setAttribute("onclick", "trigger1('tan')") ;
     arr[10].innerHTML = "ln" ;
     arr[10].setAttribute("onclick", "log(0)") ;
     arr[28].innerHTML = "\u0065" ;
@@ -48,7 +48,7 @@ function factorial(shirious) {
   }
 }
 
-function sqrt() {//1
+function sqrt() {
   let x = document.getElementById("result") ;
   let y = document.getElementById("Parameter") ;
   
@@ -70,7 +70,7 @@ function piOrE(lunar) {
   let x = document.getElementById("result") ;
   let y = document.getElementById("Parameter") ;
   
-  if (lunar == "pi") {
+  if (lunar === "pi") {
     x.value += "\u03C0" ;
     y.innerHTML += (/[\d)IE]/.test(y.innerHTML.slice(-1))) ?
       " * Math.PI" : "Math.PI" ;
@@ -81,11 +81,11 @@ function piOrE(lunar) {
   }
 }
 
-function log(jafca) {
+function log(param) {
   let x = document.getElementById("result") ;
   let y = document.getElementById("Parameter") ;
   
-  if (jafca == 1) {
+  if (param === 1) {
     x.value += "log(" ;
     y.innerHTML += (/[\d)IE]/.test(y.innerHTML.slice(-1))) ?
       " * Math.log10(" : "Math.log10(" ;
@@ -105,7 +105,7 @@ function trigger(neededParam) {
     " * Math." + neededParam + "(Math.PI / 180 * " : "Math." + neededParam + "(Math.PI / 180 * " ;
 }
 
-function trigo1(valentin) {
+function trigger1(valentin) {
   let x = document.getElementById("result") ;
   let y = document.getElementById("Parameter") ;
   
@@ -118,7 +118,7 @@ function multOrDiv(edward) {
   let x = document.getElementById("result") ;
   let y = document.getElementById("Parameter") ;
   
-  if (edward == "mult") {
+  if (edward === "mult") {
     x.value += "\u00D7" ;
     y.innerHTML += "*" ;
   } else {
@@ -132,11 +132,11 @@ function del() {
   let y = document.getElementById("Parameter") ;
   let z = document.getElementById("Answer") ;
   
-  if (x.value.slice(-3) == "Ans") {
+  if (x.value.slice(-3) === "Ans") {
     y.innerHTML = (/[\d)IE]/.test(x.value.slice(-4, -3))) ?
       y.innerHTML.slice(0, -(z.innerHTML.length + 3)) : y.innerHTML.slice(0, -(z.innerHTML.length)) ;
     x.value = x.value.slice(0, -3) ;
-  } else if (x.value == "Error!") {
+  } else if (x.value === "Error!") {
     ac() ;
   } else {
     switch (y.innerHTML.slice(-2)) {
@@ -179,7 +179,7 @@ function del() {
       default:
         y.innerHTML = y.innerHTML.slice(0, -1) ;
         x.value = x.value.slice(0, -1) ;
-    } ;
+    }
   }
 }
 
@@ -208,7 +208,7 @@ function equal() {
   for (let i = 0; i < x.value.split("(").length - x.value.split(")").length; i++) {
     y.innerHTML += ")" ;
   }
-  if (y.innerHTML != "") {
+  if (y.innerHTML !== "") {
     x.value = y.innerHTML = z.innerHTML = eval(y.innerHTML
       .replace(/(\d+\.?\d*)\!/g, "factorial($1)")
       .replace(/(\(?[^(]*\)?)\^(\(?.*\)?)/, "Math.pow($1, $2)")
